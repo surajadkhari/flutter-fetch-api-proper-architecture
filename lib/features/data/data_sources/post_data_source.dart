@@ -1,7 +1,11 @@
 import 'package:fetch_api_with_proper_architecure/core/api_client.dart';
 import 'package:fetch_api_with_proper_architecure/core/api_const.dart';
-
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 import '../models/post_response_model.dart';
+
+final postDataSourceProvider = Provider<PostDataSource>((ref) {
+  return PostDataSourceImpl(ref.watch(apiProvider ));
+});
 
 abstract class PostDataSource {
   Future<List<PostResponseModel>> getPost();
