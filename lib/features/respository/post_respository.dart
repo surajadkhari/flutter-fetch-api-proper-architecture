@@ -2,7 +2,12 @@ import 'package:dartz/dartz.dart';
 import 'package:fetch_api_with_proper_architecure/core/api_exception.dart';
 import 'package:fetch_api_with_proper_architecure/features/data/data_sources/post_data_source.dart';
 import 'package:fetch_api_with_proper_architecure/features/data/models/post_response_model.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 import '../../core/app_error.dart';
+
+final repoPostProvider = Provider<PostRepository>((ref) {
+  return PostRepositoryImpl(ref.watch(postDataSourceProvider));
+});
 
 abstract class PostRepository {
   Future<Either<AppError, List<PostResponseModel>>> getPost();
