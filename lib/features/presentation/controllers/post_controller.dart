@@ -2,6 +2,12 @@ import 'package:fetch_api_with_proper_architecure/features/data/models/post_resp
 import 'package:fetch_api_with_proper_architecure/features/respository/post_respository.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
+final postControllerProvider =
+    StateNotifierProvider<PostController, AsyncValue<List<PostResponseModel>>>(
+        (ref) {
+  return PostController(ref.watch(repoPostProvider));
+});
+
 class PostController
     extends StateNotifier<AsyncValue<List<PostResponseModel>>> {
   PostController(this._postRepository) : super(const AsyncValue.loading()) {
