@@ -1,5 +1,6 @@
 import 'package:dio/dio.dart';
 import 'package:fetch_api_with_proper_architecure/core/api_const.dart';
+import 'package:fetch_api_with_proper_architecure/core/api_exception.dart';
 
 class ApiClient {
   Future request(
@@ -18,7 +19,7 @@ class ApiClient {
               data: isFormData ? FormData.fromMap(data) : data);
       return response.data;
     } on DioError catch (e) {
-      throw Exception(e);
+      throw DioException.fromDioError(dioError: e);
     }
   }
 }
