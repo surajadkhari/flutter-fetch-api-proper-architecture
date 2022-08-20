@@ -9,7 +9,8 @@ class HomePage extends ConsumerWidget {
   Widget build(BuildContext context, WidgetRef ref) {
     final data = ref.watch(postControllerProvider);
     return Scaffold(
-      body: data.when(
+      body: 
+      data.when(
           data: (data) {
             return ListView(
               children: [
