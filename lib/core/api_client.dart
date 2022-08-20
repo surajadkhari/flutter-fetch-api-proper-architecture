@@ -1,6 +1,11 @@
 import 'package:dio/dio.dart';
 import 'package:fetch_api_with_proper_architecure/core/api_const.dart';
 import 'package:fetch_api_with_proper_architecure/core/api_exception.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
+
+final apiProvider = Provider<ApiClient>((ref) {
+  return ApiClient();
+});
 
 class ApiClient {
   Future request(
