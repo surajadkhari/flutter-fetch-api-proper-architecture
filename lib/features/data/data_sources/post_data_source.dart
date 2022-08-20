@@ -4,7 +4,7 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import '../models/post_response_model.dart';
 
 final postDataSourceProvider = Provider<PostDataSource>((ref) {
-  return PostDataSourceImpl(ref.watch(apiProvider ));
+  return PostDataSourceImpl(ref.watch(apiProvider));
 });
 
 abstract class PostDataSource {
