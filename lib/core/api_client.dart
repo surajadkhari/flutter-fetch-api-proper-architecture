@@ -10,7 +10,7 @@ final apiProvider = Provider<ApiClient>((ref) {
 class ApiClient {
   Future request(
       {required String path,
-      required String method,
+       String method="get",
       bool isFormData = false,
       Map<String, dynamic> data = const {}}) async {
     Dio dio = Dio(BaseOptions(baseUrl: ApiConstant.baseUrl, headers: {
